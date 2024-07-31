@@ -29,6 +29,11 @@
             font-size: 2em;
             margin-top: 20px;
         }
+        #numeroSorteado {
+            font-size: 3em;
+            font-weight: bold;
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -37,19 +42,19 @@
     <label for="maxNumber">Digite a quantidade máxima desejada:</label>
     <input type="number" id="maxNumber" min="1" max="100" value="20">
     <button onclick="iniciarSorteio()">Iniciar Sorteio</button>
-    <div id="resultado"></div>
+    <div id="resultado">Número Sorteado: <span id="numeroSorteado"></span></div>
 
     <script>
         function iniciarSorteio() {
             const maxNumber = parseInt(document.getElementById('maxNumber').value);
-            const resultado = document.getElementById('resultado');
+            const resultado = document.getElementById('numeroSorteado');
             let contador = 0;
 
             resultado.textContent = '';
 
             const intervalo = setInterval(() => {
                 const numeroSorteado = Math.floor(Math.random() * maxNumber) + 1;
-                resultado.textContent = `Número Sorteado: ${numeroSorteado}`;
+                resultado.textContent = numeroSorteado;
                 contador += 100; // 100ms interval
             }, 100);
 
